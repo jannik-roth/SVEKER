@@ -22,5 +22,6 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://xxx"
-Issues = "https://xxx"
+Homepage = "https://github.com/jannik-roth/SVEKER"
+Issues = "https://github.com/jannik-roth/SVEKER/issues"
+Documentations="https://jannik-roth.github.io/SVEKER/"
