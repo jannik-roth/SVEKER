@@ -1,0 +1,16 @@
+README.rst
+pyproject.toml
+src/SVEKER/__init__.py
+src/SVEKER/main.py
+src/SVEKER.egg-info/PKG-INFO
+src/SVEKER.egg-info/SOURCES.txt
+src/SVEKER.egg-info/dependency_links.txt
+src/SVEKER.egg-info/requires.txt
+src/SVEKER.egg-info/top_level.txt
+src/SVEKER/kernels/__init__.py
+src/SVEKER/kernels/kernels.py
+src/SVEKER/utils/__init__.py
+src/SVEKER/utils/utils.py
+tests/test_classes_large.py
+tests/test_classes_small.py
+tests/test_utils_kernel.py

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SVEKER"
+version = "0.1"
+authors = [
+  { name="Jannik P. Roth", email="jproth@bit.uni-bonn.de" },
+]
+license = {text = "MIT" }
+description = "Exact Shapley Values for Support Vector Machines"
+readme = "README.rst"
+requires-python = ">=3.10"
+dependencies = ["numpy", "typing_extensions", "scipy", "pandas", "scikit_learn"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://xxx"
+Issues = "https://xxx"
