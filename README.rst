@@ -6,7 +6,7 @@ This package implements exact Shapley Values for binary input data for Support V
 Documentation
 -------------
 
-To add
+For a nicely rendered version of the Documentation please visit ` <>`_
 
 Example Usage
 -------------
