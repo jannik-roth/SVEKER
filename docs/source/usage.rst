@@ -108,6 +108,10 @@ which returns ``True``.
 Citations
 ---------
 
+Our paper comparing different kernel functions:
+
+- Roth, J. P., & Bajorath, J. (2024). `Machine learning models with distinct Shapley value explanations decouple feature attribution and interpretation for chemical compound predictions` Cell Reports Physical Science, 102110, `https://doi.org/10.1016/j.xcrp.2024.102110 <https://doi.org/10.1016/j.xcrp.2024.102110>`
+
 For the original SVETA (Tanimoto kernel) implementation:
 
 - Feldmann, C., & Bajorath, J. (2022). `Calculation of exact Shapley values for support vector machines with Tanimoto kernel enables model interpretation` iScience, 25(9), `https://doi.org/10.1016/j.isci.2022.105023 <https://doi.org/10.1016/j.isci.2022.105023>`_
