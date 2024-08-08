@@ -28,7 +28,7 @@ def save_performance_plots(perf_df,
         performance_df[metric_name] = performance_df.apply(lambda x: score_func(x.y_test, x.y_predict), axis=1) # CHANGE LATER
     
         fig, axs = plt.subplots(figsize=(8,7))
-        sns.boxplot(performance_df, x='kernel', y=metric_name)
+        sns.boxplot(performance_df, x='kernel', y=metric_name, hue='kernel', legend=False)
         axs.set_xlabel('Kernel')
         axs.set_ylabel('')
         axs.set_title(metric_name_nice.get(metric_name, metric_name))
@@ -222,9 +222,9 @@ def main():
 
     PATH_TO_PERFORMANCE_RESULTS = args['analysis']['PATH_TO_PERFORMANCE_RESULTS']
     PATH_TO_SHAPLEY_RESULTS =  args['analysis']['PATH_TO_SHAPLEY_RESULTS']
-    PATH_TO_PERFORMANCE_FIGURE_FOLDER = args['analysis']['PATH_TO_PERFORMANCE_FIGURE_FOLDER']
     PATH_TO_CORRELATION_RESULTS = args['analysis']['PATH_TO_CORRELATION_RESULTS']
     CORRELATION_STATISTIC = args['analysis']['CORRELATION_STATISTIC']
+    PATH_TO_PERFORMANCE_FIGURE_FOLDER = args['analysis']['PATH_TO_PERFORMANCE_FIGURE_FOLDER']
     PATH_TO_CORRELATION_FIGURE_FOLDER = args['analysis']['PATH_TO_CORRELATION_FIGURE_FOLDER']
     PATH_TO_SCATTER_FIGURE_FOLDER = args['analysis']['PATH_TO_SCATTER_FIGURE_FOLDER']
     PATH_TO_MAPPINGS_FIGURE_FOLDER = args['analysis']['PATH_TO_MAPPINGS_FIGURE_FOLDER']
@@ -252,11 +252,15 @@ def main():
     sns.set_context('talk', font_scale=1)
     sns.set_palette('Set2')
 
+    # create folders, ignore if they do exist
+    for path in [PATH_TO_PERFORMANCE_FIGURE_FOLDER, PATH_TO_CORRELATION_FIGURE_FOLDER, PATH_TO_SCATTER_FIGURE_FOLDER, PATH_TO_MAPPINGS_FIGURE_FOLDER]:
+        os.makedirs(path, exist_ok=True)
+
     if SAVE_PERFORMANCE_PLOTS:
         print('Creating and Saving Performance Plots')
 
         performance_df = pd.read_pickle(PATH_TO_PERFORMANCE_RESULTS)
-        performance_df['kernel'].replace(kernel_name_nice, inplace=True)
+        performance_df.replace({'kernel': kernel_name_nice}, inplace=True)
 
         save_performance_plots(perf_df=performance_df,
                                metric_names=METRIC_NAMES,
@@ -267,7 +271,7 @@ def main():
         print('Calculating Correlation Statistics')
 
         shapley_df = pd.read_pickle(PATH_TO_SHAPLEY_RESULTS)
-        shapley_df['kernel'].replace(kernel_name_nice, inplace=True)
+        shapley_df.replace({'kernel': kernel_name_nice}, inplace=True)
 
         save_correlation_df(shapley_df=shapley_df,
                             path_to_correlation_results=PATH_TO_CORRELATION_RESULTS,
@@ -286,10 +290,10 @@ def main():
     if SAVE_SCATTER_PLOTS:
         print('Creating and Saving Scatter Figures')
         
-        df_shapley = pd.read_pickle(PATH_TO_SHAPLEY_RESULTS)
-        df_shapley['kernel'].replace(kernel_name_nice, inplace=True)
+        shapley_df = pd.read_pickle(PATH_TO_SHAPLEY_RESULTS)
+        shapley_df.replace({'kernel': kernel_name_nice}, inplace=True)
 
-        save_scatter_plots(df_shapley=df_shapley,
+        save_scatter_plots(df_shapley=shapley_df,
                            path_to_scatter_figure_folder=PATH_TO_SCATTER_FIGURE_FOLDER,
                            num_cpds_active_per_split=NUM_CPDS_SCATTER_ACTIVE_PER_SPLIT,
                            num_cpds_inactive_per_split=NUM_CPDS_SCATTER_INACTIVE_PER_SPLIT,
@@ -298,15 +302,14 @@ def main():
     if SAVE_MAPPINGS:
         print('Creating and Saving Mappings')
 
-        df_shapley = pd.read_pickle(PATH_TO_SHAPLEY_RESULTS)
-        df_shapley['kernel'].replace(kernel_name_nice, inplace=True)
+        shapley_df = pd.read_pickle(PATH_TO_SHAPLEY_RESULTS)
+        shapley_df.replace({'kernel': kernel_name_nice}, inplace=True)
         
-        save_mappings(df_shapley=df_shapley,
+        save_mappings(df_shapley=shapley_df,
                       num_cpds_mappings_active_per_split=NUM_CPDS_MAPPINGS_ACTIVE_PER_SPLIT,
                       num_cpds_mappings_inactive_per_split=NUM_CPDS_MAPPINGS_INACTIVE_PER_SPLIT,
                       path_to_mappings_figure_folder=PATH_TO_MAPPINGS_FIGURE_FOLDER)
         
 if __name__ == '__main__':
     main()
-
-
+    print('Finished analysis.')

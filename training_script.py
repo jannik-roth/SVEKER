@@ -23,9 +23,20 @@ def main():
     N_CV_GRIDSEARCH = args['training']['N_CV_GRIDSEARCH']
 
     PATH_TO_MODELS_FOLDER = args['training']['PATH_TO_MODELS_FOLDER']
-    PATH_TO_PERFORMANCE_RESULTS = args['training']['PATH_TO_PERFORMANCE_RESULTS']
-    PATH_TO_SHAPLEY_VALUES = args['training']['PATH_TO_SHAPLEY_VALUES']
+    PATH_TO_RESULTS_FOLDER = args['training']['PATH_TO_RESULTS_FOLDER']
+
+    FILE_NAME_PERFORMANCE_RESULTS = args['training']['FILE_NAME_PERFORMANCE_RESULTS']
+    FILE_NAME_SHAPLEY_VALUES = args['training']['FILE_NAME_SHAPLEY_VALUES']
+
     CALC_SHAPLEY = args['training']['CALC_SHAPLEY']
+
+    path_to_performance_results = os.path.join(PATH_TO_RESULTS_FOLDER, FILE_NAME_PERFORMANCE_RESULTS)
+    path_to_shapley_values = os.path.join(PATH_TO_RESULTS_FOLDER, FILE_NAME_SHAPLEY_VALUES)
+
+    # create folders, ignore if they already exist
+    for path in [PATH_TO_MODELS_FOLDER, PATH_TO_RESULTS_FOLDER]:
+        os.makedirs(path, exist_ok=True)
+
 
     # search space
     param_space = {'tanimoto': {'C': [1, 10, 100]},
@@ -98,13 +109,14 @@ def main():
                                'expected_val': expected_values[0],
                                'decision_function': decision_function}
                 shapley_results = pd.concat((shapley_results, pd.DataFrame.from_dict(res_shapley)))
-                shapley_results.to_pickle(PATH_TO_SHAPLEY_VALUES)
+                shapley_results.to_pickle(path_to_shapley_values)
 
 
             # saving
             with open(os.path.join(PATH_TO_MODELS_FOLDER, f'tid_{TID}_split_{i}_kernel_{kernel}.dill'), 'wb') as f:
                 dill.dump(gridsearch.best_estimator_, f)
-            performance_results.to_pickle(PATH_TO_PERFORMANCE_RESULTS)
+            performance_results.to_pickle(path_to_performance_results)
 
 if __name__ == '__main__':
-    main()    
+    main()
+    print('Finished training')    
