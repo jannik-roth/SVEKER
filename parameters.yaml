@@ -4,7 +4,7 @@ training:
   N_SPLITS: 2
   TRAIN_SIZE: 0.7
   RANDOM_STATE: 42
-  KERNELS: ['tanimoto', 'rbf']
+  KERNELS: ['tanimoto', 'rbf', 'sigmoid', 'poly']
   SCORING_GRIDSEARCH: 'matthews_corrcoef'
   N_CV_GRIDSEARCH: 2
   PATH_TO_MODELS_FOLDER: 'models'
