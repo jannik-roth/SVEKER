@@ -1,0 +1,35 @@
+training:
+  TID: 'CHEMBL279'
+  DATA_FOLDER: 'data'
+  N_SPLITS: 2
+  TRAIN_SIZE: 0.7
+  RANDOM_STATE: 42
+  KERNELS: ['tanimoto', 'rbf', 'sigmoid', 'poly']
+  SCORING_GRIDSEARCH: 'matthews_corrcoef'
+  N_CV_GRIDSEARCH: 2
+  PATH_TO_MODELS_FOLDER: 'models'
+  PATH_TO_PERFORMANCE_RESULTS: 'results/performance.pkl'
+  PATH_TO_SHAPLEY_VALUES: 'results/shapley_values.pkl'
+  CALC_SHAPLEY: True
+
+analysis:
+  PATH_TO_PERFORMANCE_RESULTS: 'results/performance.pkl'
+  PATH_TO_SHAPLEY_RESULTS: 'results/shapley_values.pkl'
+  PATH_TO_PERFORMANCE_FIGURE_FOLDER: 'results/figures/performance'
+  PATH_TO_CORRELATION_RESULTS: 'results/correlation.pkl'
+  CORRELATION_STATISTIC: 'pearson'
+  PATH_TO_CORRELATION_FIGURE_FOLDER: 'results/figures/correlation'
+  PATH_TO_SCATTER_FIGURE_FOLDER: 'results/figures/scatter'
+  PATH_TO_MAPPINGS_FIGURE_FOLDER: 'results/figures/mappings'
+
+  METRIC_NAMES: ['accuracy', 'matthews_corrcoef', 'f1']
+  SAVE_PERFORMANCE_PLOTS: True
+  CALCULATE_CORRELATION_STATISTICS: True
+  SAVE_CORRELATION_FIGURES: True
+  SAVE_SCATTER_PLOTS: True
+  NUM_CPDS_SCATTER_ACTIVE_PER_SPLIT: 1
+  NUM_CPDS_SCATTER_INACTIVE_PER_SPLIT: 1
+  SAVE_SCATTER_MOLS: True
+  SAVE_MAPPINGS: True
+  NUM_CPDS_MAPPINGS_ACTIVE_PER_SPLIT: 1
+  NUM_CPDS_MAPPINGS_INACTIVE_PER_SPLIT: 1
