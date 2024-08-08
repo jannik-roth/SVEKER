@@ -1,23 +1,24 @@
 training:
   TID: 'CHEMBL279'
-  DATA_FOLDER: 'data'
+  DATA_FOLDER: 'STAR_protocol_data'
   N_SPLITS: 2
   TRAIN_SIZE: 0.7
   RANDOM_STATE: 42
-  KERNELS: ['tanimoto', 'rbf', 'sigmoid', 'poly']
+  KERNELS: ['tanimoto', 'rbf']
   SCORING_GRIDSEARCH: 'matthews_corrcoef'
   N_CV_GRIDSEARCH: 2
   PATH_TO_MODELS_FOLDER: 'models'
-  PATH_TO_PERFORMANCE_RESULTS: 'results/performance.pkl'
-  PATH_TO_SHAPLEY_VALUES: 'results/shapley_values.pkl'
+  PATH_TO_RESULTS_FOLDER: 'results'
+  FILE_NAME_PERFORMANCE_RESULTS: 'performance.pkl'
+  FILE_NAME_SHAPLEY_VALUES: 'shapley_values.pkl'
   CALC_SHAPLEY: True
 
 analysis:
   PATH_TO_PERFORMANCE_RESULTS: 'results/performance.pkl'
   PATH_TO_SHAPLEY_RESULTS: 'results/shapley_values.pkl'
-  PATH_TO_PERFORMANCE_FIGURE_FOLDER: 'results/figures/performance'
   PATH_TO_CORRELATION_RESULTS: 'results/correlation.pkl'
   CORRELATION_STATISTIC: 'pearson'
+  PATH_TO_PERFORMANCE_FIGURE_FOLDER: 'results/figures/performances'
   PATH_TO_CORRELATION_FIGURE_FOLDER: 'results/figures/correlation'
   PATH_TO_SCATTER_FIGURE_FOLDER: 'results/figures/scatter'
   PATH_TO_MAPPINGS_FIGURE_FOLDER: 'results/figures/mappings'
