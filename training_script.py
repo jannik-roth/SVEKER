@@ -1,6 +1,6 @@
 import SVEKER
 from STAR_protocol_utils.dataloader import MorganFPDataLoader
-from sklearn.model_selection import StratifiedShuffleSplit, GridSearchCV
+from sklearn.model_selection import StratifiedShuffleSplit, GridSearchCV, KFold
 import pandas as pd
 import dill
 import os
@@ -76,10 +76,14 @@ def main():
         for kernel in KERNELS:
             print(f'  -> on kernel: {kernel}')
             model = SVEKER.ExplainingSVC(kernel_type=kernel)
+
+            inner_splitter = KFold(n_splits=N_CV_GRIDSEARCH,
+                                   shuffle=False)
+
             gridsearch = GridSearchCV(estimator=model,
                                       param_grid=param_space[kernel],
                                       scoring=SCORING_GRIDSEARCH,
-                                      cv=N_CV_GRIDSEARCH,
+                                      cv=inner_splitter,
                                       refit=True)
             gridsearch.fit(x_train, y_train)
 
