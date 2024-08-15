@@ -76,7 +76,7 @@ Same as above, we import the necessary packages and create some dummy data
     n_samples = 500
 
     x = np.random.randint(low=0, high=2, size=(n_samples, n_feat))
-    y = np.random.rand(n_samples)
+    y = np.random.randint(low=0, high=2, size=(n_samples,))
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.7, random_state=42)
 
