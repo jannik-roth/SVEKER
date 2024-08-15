@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SVEKER.kernels.SigmoidKernel &#8212; SVEKER 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=27fed22d" />
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SVEKER.utils.m_coeff" href="SVEKER.utils.m_coeff.html" />
+    <link rel="prev" title="SVEKER.kernels.PolynomialKernel" href="SVEKER.kernels.PolynomialKernel.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="sveker-kernels-sigmoidkernel">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">SVEKER.kernels</span></code>.SigmoidKernel<a class="headerlink" href="#sveker-kernels-sigmoidkernel" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="SVEKER.kernels.SigmoidKernel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">SVEKER.kernels.</span></span><span class="sig-name descname"><span class="pre">SigmoidKernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">no_player_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coef0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#SVEKER.kernels.SigmoidKernel" title="Link to this definition">¶</a></dt>
+<dd><p>Implements the Sigmoid kernel</p>
+<p><span class="math notranslate nohighlight">\(K(I, D) = \tanh(\gamma I + r)\)</span></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="SVEKER.kernels.SigmoidKernel.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">no_player_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coef0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#SVEKER.kernels.SigmoidKernel.__init__" title="Link to this definition">¶</a></dt>
+<dd><p>Initializes the Sigmoid Kernel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gamma</strong> (<em>float</em>) – Parameter <span class="math notranslate nohighlight">\(\gamma\)</span> for the Sigmoid kernel.</p></li>
+<li><p><strong>coef0</strong> (<em>float</em>) – Parameter <span class="math notranslate nohighlight">\(r\)</span> for the Sigmoid kernel.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SVEKER.kernels.SigmoidKernel.delta_nu_fminus">
+<span class="sig-name descname"><span class="pre">delta_nu_fminus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#SVEKER.kernels.SigmoidKernel.delta_nu_fminus" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the change in the Sigmoid kernel upon adding a feature to the symmetric difference.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Delta\nu_{f^-} (N_i, N_d) = \begin{cases}
+\tanh{}(r) - \nu(\varnothing) &amp; \text{if } N_i = 0 \text{ and } N_d = 0 \\
+0 &amp; \text{else}
+\end{cases}\end{split}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_i</strong> (<em>int</em>) – Number of elements in the intersection, <span class="math notranslate nohighlight">\(N_i\)</span></p></li>
+<li><p><strong>n_d</strong> (<em>int</em>) – Number of elemtnes in the symmetric difference, <span class="math notranslate nohighlight">\(N_d\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Change in kernel, <span class="math notranslate nohighlight">\(\Delta\nu_{f^-}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SVEKER.kernels.SigmoidKernel.delta_nu_fplus">
+<span class="sig-name descname"><span class="pre">delta_nu_fplus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#SVEKER.kernels.SigmoidKernel.delta_nu_fplus" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the change in the Sigmoid kernel upon adding a feature to the intersection.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Delta\nu_{f^+} (N_i, N_d) = \begin{cases}
+\tanh{}(\gamma (N_i + 1) + r) - \nu(\varnothing)&amp; \text{if } N_i = 0 \text{ and } N_d = 0 \\
+\tanh{}(\gamma (N_i + 1) + r) - \tanh{}(\gamma N_i + r) &amp; \text{else}
+\end{cases}\end{split}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_i</strong> (<em>int</em>) – Number of elements in the intersection, <span class="math notranslate nohighlight">\(N_i\)</span></p></li>
+<li><p><strong>n_d</strong> (<em>int</em>) – Number of elements in the symmetric difference, <span class="math notranslate nohighlight">\(N_d\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Change in kernel, <span class="math notranslate nohighlight">\(\Delta\nu_{f^+}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SVEKER.kernels.SigmoidKernel.get_kernel_function">
+<span class="sig-name descname"><span class="pre">get_kernel_function</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="headerlink" href="#SVEKER.kernels.SigmoidKernel.get_kernel_function" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the Kernel function to be used with <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html">sklearn.SVC</a> or <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html">sklearn.SVR</a>. See <code class="docutils literal notranslate"><span class="pre">kernel</span> <span class="pre">=</span> <span class="pre">'precomputed'</span></code> in the <cite>sklearn</cite> documentaion for details.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SVEKER.kernels.SigmoidKernel.phi_fminus">
+<span class="sig-name descname"><span class="pre">phi_fminus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#SVEKER.kernels.SigmoidKernel.phi_fminus" title="Link to this definition">¶</a></dt>
+<dd><p>Simplified summation for the Shapley value calculation for adding a feature to the symmetric difference. Only valid for Sigmoid kernel.</p>
+<p><span class="math notranslate nohighlight">\(\phi_{f^-} (I, D) = \frac{\tanh{}(r) - \nu(\varnothing)}{I + D}\)</span></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – Size of intersection, <span class="math notranslate nohighlight">\(I\)</span></p></li>
+<li><p><strong>d</strong> (<em>int</em>) – Size of the symmetric difference, <span class="math notranslate nohighlight">\(D\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shapley value for adding a feature to the symmetric difference, <span class="math notranslate nohighlight">\(\phi_{f^+}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="SVEKER.kernels.SigmoidKernel.phi_fplus">
+<span class="sig-name descname"><span class="pre">phi_fplus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#SVEKER.kernels.SigmoidKernel.phi_fplus" title="Link to this definition">¶</a></dt>
+<dd><p>Simplified summation for the Shapley value calculation for adding a feature to the intersection. Only valid for Sigmoid kernel.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+\phi_{f^+} (I, D) = &amp; \frac{\tanh{}(\gamma + r) - \nu(\varnothing)}{I + D} \\
+&amp; + \Delta\nu_{f^+}(0, 1) \sum_{N_d=1}^D \binom{D}{N_d} \, m_\mathrm{coeff}(0, N_d, I, D) \\
+&amp; + \sum_{N_i = 1}^{I-1} \Delta\nu_{f^+}(N_i, 0) \sum_{N_d = 0}^{D}  \, C_{f^+} (N_i, N_d, I, D) \, m_\mathrm{coeff}(N_i, N_d, I, D)
+\end{split}\end{split}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – Size of intersection, <span class="math notranslate nohighlight">\(I\)</span></p></li>
+<li><p><strong>d</strong> (<em>int</em>) – Size of the symmetric difference, <span class="math notranslate nohighlight">\(D\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Shapley value for adding a feature to the intersection, <span class="math notranslate nohighlight">\(\phi_{f^+}\)</span></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">SVEKER</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api.html#classes-sveker">Classes: <code class="docutils literal notranslate"><span class="pre">SVEKER</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#kernel-sveker-kernels">Kernel: <code class="docutils literal notranslate"><span class="pre">SVEKER.kernels</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="SVEKER.kernels.BaseKernel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">SVEKER.kernels</span></code>.BaseKernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SVEKER.kernels.TanimotoKernel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">SVEKER.kernels</span></code>.TanimotoKernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SVEKER.kernels.RBFKernel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">SVEKER.kernels</span></code>.RBFKernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SVEKER.kernels.PolynomialKernel.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">SVEKER.kernels</span></code>.PolynomialKernel</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">SVEKER.kernels</span></code>.SigmoidKernel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#SVEKER.kernels.SigmoidKernel"><code class="docutils literal notranslate"><span class="pre">SigmoidKernel</span></code></a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#SVEKER.kernels.SigmoidKernel.__init__"><code class="docutils literal notranslate"><span class="pre">SigmoidKernel.__init__()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#SVEKER.kernels.SigmoidKernel.delta_nu_fminus"><code class="docutils literal notranslate"><span class="pre">SigmoidKernel.delta_nu_fminus()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#SVEKER.kernels.SigmoidKernel.delta_nu_fplus"><code class="docutils literal notranslate"><span class="pre">SigmoidKernel.delta_nu_fplus()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#SVEKER.kernels.SigmoidKernel.get_kernel_function"><code class="docutils literal notranslate"><span class="pre">SigmoidKernel.get_kernel_function()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#SVEKER.kernels.SigmoidKernel.phi_fminus"><code class="docutils literal notranslate"><span class="pre">SigmoidKernel.phi_fminus()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#SVEKER.kernels.SigmoidKernel.phi_fplus"><code class="docutils literal notranslate"><span class="pre">SigmoidKernel.phi_fplus()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#utility-functions-sveker-utils-functions">Utility Functions: <code class="docutils literal notranslate"><span class="pre">SVEKER.utils</span></code> Functions</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../api.html">API</a><ul>
+      <li>Previous: <a href="SVEKER.kernels.PolynomialKernel.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">SVEKER.kernels</span></code>.PolynomialKernel</a></li>
+      <li>Next: <a href="SVEKER.utils.m_coeff.html" title="next chapter">SVEKER.utils.m_coeff</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Jannik Roth.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../_sources/generated/SVEKER.kernels.SigmoidKernel.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
