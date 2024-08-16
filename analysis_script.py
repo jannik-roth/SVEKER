@@ -5,7 +5,7 @@ import seaborn as sns
 import sklearn.metrics as metrics
 import os
 import rdkit.Chem as Chem
-import yaml
+import yaml_
 
 from STAR_protocol_utils.mappings import get_ecfp4_bit_info, shap_to_atom_weight, get_atom_wise_weight_map
 
@@ -205,7 +205,7 @@ def save_mappings(df_shapley, num_cpds_mappings_active_per_split, num_cpds_mappi
                             id=act)
 
         for inact in range(num_cpds_mappings_inactive_per_split):
-            smiles = df_correct_all_kernel_split.query('y_train == 0').iloc[act].smiles
+            smiles = df_correct_all_kernel_split.query('y_train == 0').iloc[inact].smiles
             tmp_df = df_correct_all_kernel_split.query('smiles == @smiles')
             create_mappings(smiles=smiles,
                             mol_df=tmp_df,
