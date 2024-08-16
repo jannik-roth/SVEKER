@@ -5,7 +5,7 @@ import seaborn as sns
 import sklearn.metrics as metrics
 import os
 import rdkit.Chem as Chem
-import yaml_
+import yaml
 
 from STAR_protocol_utils.mappings import get_ecfp4_bit_info, shap_to_atom_weight, get_atom_wise_weight_map
 
@@ -165,7 +165,7 @@ def save_scatter_plots(df_shapley,
 
 
         for inact in range(num_cpds_inactive_per_split):
-            smiles = df_correct_all_kernel_split.query('y_train == 0').iloc[act].smiles
+            smiles = df_correct_all_kernel_split.query('y_train == 0').iloc[inact].smiles
             tmp_df = df_correct_all_kernel_split.query('smiles == @smiles')
             g = create_scatter(tmp_df)
             g.tight_layout()
@@ -174,7 +174,7 @@ def save_scatter_plots(df_shapley,
 
             if save_mols:
                 mol_img = draw_mol(smiles)
-                mol_img.save(os.path.join(path_to_scatter_figure_folder, f'split_{split}_mol_{smiles}_active_{inact}.png'))
+                mol_img.save(os.path.join(path_to_scatter_figure_folder, f'split_{split}_mol_{smiles}_inactive_{inact}.png'))
 
 def create_mappings(smiles, mol_df, path_to_mappings_figure_folder, activity_descr, split, id):
     mol = Chem.MolFromSmiles(smiles)
