@@ -33,7 +33,7 @@ class MorganFPDataLoader(BaseDataLoader):
                  radius: int = 2,
                  size : int = 2048,
                  smiles_column_name: str = 'nonstereo_aromatic_smiles',
-                 activity_column_name: str = 'active',
+                 activity_column_name: str = 'label',
                  active_phrase: str = 'active') -> None:
         
         super().__init__(path=os.path.join(folder, f'{chembl_tid}.csv'))

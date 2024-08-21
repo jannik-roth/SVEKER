@@ -1,4 +1,4 @@
-nonstereo_aromatic_smiles,active
+nonstereo_aromatic_smiles,label
 Cc1cc(C(=O)Nc2cccc(Oc3ccc4nc(NC(=O)C5CC5)cn4n3)c2)n(-c2ccccc2)n1,active
 COc1ccc(CC(=O)Nc2ccc3oc(-c4ccc(Cl)cc4)nc3c2)cc1OC,active
 CCOS(=O)(=O)C=Cc1ccc(OCCCCNc2nc(-c3ccc(OC)cc3)cs2)cc1,random

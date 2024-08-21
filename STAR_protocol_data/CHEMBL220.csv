@@ -1,4 +1,4 @@
-nonstereo_aromatic_smiles,active
+nonstereo_aromatic_smiles,label
 Oc1ccc(Nc2nnc(-c3ccc(I)cc3)o2)cc1,random
 c1cc[n+](CCCCCCCCCC[n+]2cccc3ccccc32)cc1,active
 O=c1cc(-c2ccc(O)c(-c3c(-c4ccc(O)cc4)oc4cc(O)cc(O)c4c3=O)c2)oc2cc(O)cc(O)c12,random
