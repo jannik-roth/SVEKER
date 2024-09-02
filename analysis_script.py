@@ -242,7 +242,7 @@ def main():
     SAVE_MAPPINGS = args['analysis']['SAVE_MAPPINGS']
         
     metric_name_nice = {'accuracy': 'Accuracy',
-                        'matthews_corrcoef': "MCC $\phi$",
+                        'matthews_corrcoef': "MCC",
                         'f1': 'F1 Score'}
     kernel_name_nice = {'tanimoto': 'TAN',
                         'rbf': 'RBF',
